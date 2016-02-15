@@ -29,6 +29,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.backgroundColor = UIColor.grayColor()
         self.searchController.searchResultsUpdater = self
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.searchBar.sizeToFit()
+        self.businessTableView.tableHeaderView = self.searchController.searchBar
+        
+        navigationItem.titleView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        definesPresentationContext = true
         
         self.searchController.dimsBackgroundDuringPresentation = true
         self.searchController.searchBar.sizeToFit()
